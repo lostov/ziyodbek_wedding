@@ -33,10 +33,11 @@
     </audio>
 
     <script>
-        document.addEventListener('click', function() {
-            document.getElementById('background-music').play();
-            alert('clicked');
-        }, { once: true });
+    window.onload = function() {
+        document.getElementById('background-music').play().catch(function(error) {
+            console.log('Autoplay was prevented:', error);
+        });
+    };
     </script>
 </div>
 <script src="script.js"></script>
