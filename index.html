@@ -9,6 +9,13 @@
 <title>Ziyodbek va Farzonaxonning nikoh to'yida faxriy mehmon bo'ling!</title>
 </head>
 <body>
+
+<div class="opening"> 
+    <div class="container-left"></div>
+    <div class="container-right"></div>
+    <button class="rosarium">TAKLIFNOMA</button>
+</div>
+
 <div class="invitation">
     <header>
         <h1 class="rosarium danger">Hurmatli mehmonlar!</h1>
@@ -16,8 +23,7 @@
         <p>Qalblar ezguliklarga to‘la bo‘lgan ushbu qutlug‘ kunda do‘stlar yonida bo‘ling!</p>
     </header>
     <section class="details">
-        <p>Sizni 2024-yil 27-avgust Seshanba kuni <strong class="rosarium" style="font-size: 1.35rem;">Nahorgi nonushta</strong> hamda soat <strong class="rosarium">17:00</strong>da Ayollar uchun <strong class="rosarium" style="font-size: 1.35rem;">Bazm</strong> dasturxonimizga taklif etamiz
-</strong></p>
+        <p>Sizni 2024-yil 27-avgust Seshanba kuni <strong class="rosarium" style="font-size: 1.35rem;">Nahorgi nonushta</strong> hamda soat <strong class="rosarium">17:00</strong>da Ayollar uchun <strong class="rosarium" style="font-size: 1.35rem;">Bazm</strong> dasturxonimizga taklif etamiz</p>
         <p><strong>To'y manzili:</strong> <strong class="rosarium info" style="font-size: 1.3rem;">Jasmin</strong> to'yxonasi</p>
         <a href="https://maps.app.goo.gl/NhLnx6c4C8tNnGKF6" target="_blank" class="map-button">Karta orqali ochish</a>
     </section>
@@ -33,12 +39,88 @@
     </audio>
 
     <script>
-    window.onload = function() {
-        document.getElementById('background-music').play().catch(function(error) {
-            console.log('Autoplay was prevented:', error);
+        const button = document.querySelector("button");
+        button.addEventListener("click", event => {
+            document.getElementById('background-music').play();
+            const c_left = document.querySelector(".container-left");
+            const c_right = document.querySelector(".container-right");
+            c_left.classList.add("slide-left");
+            c_right.classList.add("slide-right");
+            button.style.display = "none";
         });
-    };
     </script>
+    <style>
+
+    /* Open Screen */
+
+    .opening {
+        position: absolute; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .opening .container-left {
+        background-color: #fdcae4;
+        width: 50%;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        transition: width 1s;
+    }
+    .opening .container-right {
+        background-color: #fdcae4;
+        width: 50%;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        transition: width 1s;
+    }
+    .opening button {
+        width: 200px;
+        height: 50px;
+        font-size: 1.25em;
+        font-family: 'Arial', sans-serif;
+        letter-spacing: 3px;
+        position: absolute;
+        z-index: 4;
+        border: 4px solid #17a2b8;
+        color: #17a2b8;
+        border-radius: 5px;
+        background-color: transparent;
+        transition: all .5s;
+    }
+    .opening button:hover {
+        background-color: #17a2b8;
+        color: #fdcae4;
+        font-weight: bold;
+    }
+    .opening button::after {
+        content: '(tugmachani bosing)';
+        font-family: 'Arial', sans-serif;
+        top: 55px;
+        left: 0;
+        position: absolute;
+        font-size: .45em;
+        width: 100%;
+        color: #17a2b8;
+    }
+    .opening .slide-left {
+        width: 0;
+    }
+
+    .opening .slide-right {
+        width: 0;
+    }
+    </style>
 </div>
 <script src="script.js"></script>
 </body>
